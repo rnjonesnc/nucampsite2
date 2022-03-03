@@ -52,12 +52,31 @@ class Directory extends Component {
                 <div className="row">
                     {directory}
                 </div>
+                <ExampleParentCoponent />
             </div>
 
         );
      }
     } 
 
+    class ExampleParentCoponent extends Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                number: 333
+            }
+        }
+        render() {
+            return <ExampleChildComponent number={this.state.number} 
+            greeting = "Hello World" name = "Raven" />
+        }
+    }
+
+    class ExampleChildComponent extends Component {
+        render() {
+            return <div>{this.props.number} {this.props.greeting} {this.props.name}</div>
+        };
+    }
     export default Directory;
 
  /*making a constructor but not required, for cfdsfsdfsfhanges,
