@@ -3,12 +3,18 @@ import './App.css';
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './components/DirectoryComponent';
+import { CAMPSITES } from './shared/campsites';
 import './App.css';
 
 
 //Got this from the written instructions React - Week 2 - 7. Exercise: Inital Configuration
-class App 
-  extends Component {
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            campsites: CAMPSITES
+        };
+    }
   render() {
       return (
           <div className="App">
@@ -17,7 +23,7 @@ class App
                   <NavbarBrand href="/">NuCamp</NavbarBrand>
               </div>
               </Navbar>
-              <Directory />
+              <Directory campsites={this.state.campsites} />
           </div>
       );
   }
